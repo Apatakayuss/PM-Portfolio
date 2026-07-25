@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NavSection } from '../types';
 import { Search, Moon, Sun, Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 interface NavbarProps {
   activeSection: NavSection;
@@ -25,7 +26,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'ai-automation', label: 'AI & Automation' },
     { id: 'writing', label: 'Writing' },
     { id: 'about', label: 'About' },
-    { id: 'resume', label: 'Resume' },
     { id: 'contact', label: 'Contact' },
   ];
 
@@ -38,9 +38,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={() => onNavigate('home')} 
           className="cursor-pointer flex items-center gap-2.5 group"
         >
-          <div className="w-8 h-8 rounded-sm bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 flex items-center justify-center font-bold font-mono text-xs shadow-sm group-hover:bg-zinc-800 transition-colors">
-            AA
-          </div>
+          <img
+            src={logo}
+            alt="Abdulazeez Apata logo"
+            className="w-8 h-8 object-contain rounded-sm shadow-sm"
+          />
           <div className="flex flex-col">
             <span className="font-semibold text-sm tracking-tight text-zinc-900 dark:text-zinc-50 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">
               Abdulazeez Apata

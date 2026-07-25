@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, type FC, type ChangeEvent } from 'react';
 import { Article } from '../types';
 import { articles } from '../data/articles';
 import { Search, BookOpen, Clock, Calendar, ArrowRight, Sparkles, ExternalLink } from 'lucide-react';
@@ -7,9 +7,9 @@ interface WritingViewProps {
   onSelectArticle: (art: Article) => void;
 }
 
-export const WritingView: React.FC<WritingViewProps> = ({ onSelectArticle }) => {
-  const [selectedCategory, setSelectedCategory] = React.useState<string>('All');
-  const [searchQuery, setSearchQuery] = React.useState<string>('');
+export const WritingView: FC<WritingViewProps> = ({ onSelectArticle }) => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const categories = [
     'All',
@@ -98,7 +98,7 @@ export const WritingView: React.FC<WritingViewProps> = ({ onSelectArticle }) => 
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
               placeholder="Search writing & topics..."
               className="w-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-sm pl-9 pr-4 py-2 text-xs text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-zinc-900"
             />

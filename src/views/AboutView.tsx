@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { personalInfo, careerExperiences, skillGroups } from '../data/profile';
-import { User, GraduationCap, Briefcase, Code2, Compass, Layers, ShieldCheck, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { User, GraduationCap, Briefcase, Code2, Compass, Layers, ShieldCheck, CheckCircle2, ArrowUpRight, Download } from 'lucide-react';
+import resumePdf from '../assets/Abdulazeez Apata CV .pdf';
 
 export const AboutView: React.FC = () => {
   return (
@@ -20,6 +21,17 @@ export const AboutView: React.FC = () => {
         <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
           Product Manager specializing in fintech infrastructure, API payments, real-time AML compliance, and AI-enabled workflow engineering.
         </p>
+
+        <div className="flex flex-wrap items-center gap-3 pt-2">
+          <a
+            href={resumePdf}
+            download="Abdulazeez Apata CV.pdf"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors shadow-sm"
+          >
+            <Download className="w-4 h-4" />
+            Download Resume
+          </a>
+        </div>
       </div>
 
       {/* PROFESSIONAL STORY SECTIONS */}
@@ -138,32 +150,38 @@ export const AboutView: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {skillGroups.map((group, idx) => (
-            <div
-              key={idx}
-              className="bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-sm p-6 space-y-4 shadow-sm flex flex-col justify-between"
-            >
-              <div>
-                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-1">
-                  {group.category}
-                </h3>
-                <p className="text-xs text-zinc-500 mb-4 leading-relaxed">
-                  {group.description}
-                </p>
+          {skillGroups.map((group, idx) => {
+            if (group.category === 'Technical') {
+              return null;
+            }
 
-                <div className="flex flex-wrap gap-1.5">
-                  {group.skills.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="px-2.5 py-1 rounded-sm text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200/60 dark:border-zinc-700/60"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+            return (
+              <div
+                key={idx}
+                className="bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-sm p-6 space-y-4 shadow-sm flex flex-col justify-between"
+              >
+                <div>
+                  <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-1">
+                    {group.category}
+                  </h3>
+                  <p className="text-xs text-zinc-500 mb-4 leading-relaxed">
+                    {group.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {group.skills.map((skill, sIdx) => (
+                      <span
+                        key={sIdx}
+                        className="px-2.5 py-1 rounded-sm text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200/60 dark:border-zinc-700/60"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

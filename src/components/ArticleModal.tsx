@@ -10,7 +10,7 @@ interface ArticleModalProps {
 export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose }) => {
   const [copied, setCopied] = React.useState(false);
   const [scrollProgress, setScrollProgress] = React.useState(0);
-  const contentRef = React.useRef<HTMLDivElement>(null);
+  const contentRef = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
     const handleScroll = () => {

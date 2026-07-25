@@ -14,7 +14,7 @@ export const personalInfo = {
   aboutStory: {
     whoIAm: "I am a Product Manager who thinks in systems. ",
     howIBecamePM: "My journey started with a background in Biochemistry and a Master of Public Health, which trained me in rigorous analytical methodologies, scientific observation, and population-level system dynamics. Transitioning into software engineering as a Frontend Web Developer at Adanian Labs, I discovered my deep passion for product strategy, system architecture, and customer problem-solving, leading me directly into Technical Product Management.",
-    howIThink: "I look beyond the feature or interface in front of the user to understand the processes, dependencies, technology, and operational realities underneath it. I believe a product can only be truly successful when the experience works for the user, the system works reliably, and the business can sustain it.\n\nMy approach starts with clear problem framing. I focus on understanding what is actually broken, identifying where friction and manual bottlenecks exist, and creating clarity before moving into execution. I care about the details of how systems behave—not just when everything goes right, but also when transactions fail, dependencies go down, processes break, or users take unexpected paths.\n\nUltimately, I try to build products that are useful to users, reliable in operation, and valuable to the business.",
+    howIThink: "I am a Product Manager who thinks in systems.\n\nI look beyond the feature or interface in front of the user to understand the processes, dependencies, technology, and operational realities underneath it. I believe a product can only be truly successful when the experience works for the user, the system works reliably, and the business can sustain it.\n\nMy approach starts with clear problem framing. I focus on understanding what is actually broken, identifying where friction and manual bottlenecks exist, and creating clarity before moving into execution. I care about the details of how systems behave—not just when everything goes right, but also when transactions fail, dependencies go down, processes break, or users take unexpected paths.\n\nUltimately, I try to build products that are **useful to users, reliable in operation, and valuable to the business.**", 
     whyFintech: "Financial infrastructure and payment routing present fascinating engineering and regulatory challenges. Ensuring a transaction succeeds in seconds requires alignment across APIs, banks, compliance engines, and user psychology.",
     howAIChangesWork: "I don't treat AI as a content generator; I treat it as a cognitive lever. From synthesizing raw feedback data to automating PRD drafts, evaluating LLM accuracy, and crafting automated workflow pipelines, AI enables me to operate with high velocity and strategic clarity."
   },
@@ -65,7 +65,7 @@ export const verifiedMetrics: MetricItem[] = [
   },
   {
     id: "kongapay-merchant",
-    number: "₦100 Million",
+    number: "₦100M",
     unit: "in 4 months",
     shortDescription: "Merchant Transaction Volume",
     context: "POS and digital merchant onboarding platform built for small & mid-sized retail businesses.",
@@ -105,9 +105,12 @@ export const careerExperiences: CareerExperience[] = [
     location: "Lagos, Nigeria",
     description: "Driving product strategy, API integrations, and fintech solutions across enterprise clients and digital banking modules.",
     achievements: [
-      "Leading cross-functional engineering teams in delivering scalable financial APIs and payment orchestration platforms.",
-      "Defining technical product requirements (PRDs/FRDs), API schemas, and sequence diagrams for high-volume banking workflows.",
-      "Integrating AI-assisted discovery pipelines into product discovery to decrease PRD drafting time by 40%."
+      "Lead product development for an IT Asset Management System, a telecom asset and identity management platform, defining product requirements, user stories, and roadmap in partnership with engineering,operations, and compliance stakeholders.",
+      "Provide product leadership across three concurrent product workstreams, setting strategic priorities, resolving cross-functional dependencies, managing competing stakeholder needs, and serving as the primary point of accountability for successful product delivery.",
+      "Produce enterprise-grade product documentation, including Functional Requirements Documents, Product Requirements Documents, user stories, acceptance criteria, and process flows to enable disciplined Agile execution across distributed engineering teams.",
+      "Conduct market research and competitive analysis across the Nigerian fintech landscape to identify opportunities in digital banking, payments, merchant services, identity verification, and financial infrastructure.",
+      "Partner closely with engineering, compliance, operations, and business stakeholders to align product delivery with regulatory requirements, operational objectives, and organizational strategy",
+      "Drive backlog prioritization, sprint planning, and release planning, ensuring engineering efforts remain aligned with business priorities, regulatory deadlines, and customer needs."
     ],
     skillsUsed: ["Product Strategy", "API Design", "Fintech Infrastructure", "AI Workflows", "System Requirements"]
   },
@@ -137,9 +140,12 @@ export const careerExperiences: CareerExperience[] = [
     location: "Lagos, Nigeria",
     description: "Managed end-to-end product lifecycle for digital bill payment, utility aggregation, and instant settlement systems.",
     achievements: [
-      "Engineered automated reconciliation flows for pending utility payments, reducing customer support tickets by 35%.",
-      "Collaborated with engineering to implement webhook event listeners, bringing average bill delivery times down to sub-15 seconds.",
-      "Structured product requirements for airtime, data, electricity, and cable TV aggregation APIs."
+      "Managed the end-to-end product lifecycle for key bill payment and utility services, delivering features that improved user satisfaction and contributed to recurring revenue growth.",
+      "Collaborated with engineering teams to manage and optimize integrations with third-party biller and payment APIs, improving transaction reliability, response handling, and service uptime.",
+      "Collaborated with leadership to define product KPIs and align feature prioritization with quarterly revenue goals",
+      "Worked with operations and customer support teams to identify service issues, prioritize enhancements, and reduce customer friction across bill payment journeys.",
+      "Drove alignment across engineering, operations, and leadership through structured roadmap and review sessions.",
+      "Advocated for a data-informed product culture, implementing usage analytics and performance tracking to identify friction points and improve customer retention."
     ],
     skillsUsed: ["Bill Payments", "Transaction Lifecycle", "Reconciliation", "User Story Mapping", "Postman"]
   },
@@ -151,8 +157,11 @@ export const careerExperiences: CareerExperience[] = [
     period: "July 2022 – February 2023",
     description: "Built responsive web applications, interactive UI dashboards, and reusable frontend components.",
     achievements: [
-      "Developed high-performance client interfaces using modern JavaScript, React, and RESTful API integrations.",
-      "Gained firsthand technical intuition into software development lifecycles, frontend performance, and state management."
+      "Collaborated with product and design teams to translate user requirements into intuitive, responsive web interfaces that improved usability and adoption.",
+      "Applied modern front-end technologies to deliver scalable, high-performing applications across multiple devices.",
+      "Provided technical input during product feasibility reviews, bridging the gap between engineering constraints and product intent.",
+      "Developed a strong understanding of engineering workflows and technical feasibility, shaping a foundation for data-informed product decision-making",
+      "Gained foundational experience with API integrations, front-end consumption of backend services, and cross-system data flows"
     ],
     skillsUsed: ["React", "JavaScript", "REST APIs", "UI/UX Architecture", "Git & GitHub"]
   }

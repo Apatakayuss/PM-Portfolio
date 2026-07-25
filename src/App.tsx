@@ -11,7 +11,7 @@ import { WorkView } from './views/WorkView';
 import { AiAutomationView } from './views/AiAutomationView';
 import { WritingView } from './views/WritingView';
 import { AboutView } from './views/AboutView';
-import { ResumeView } from './views/ResumeView';
+// import { ResumeView } from './views/ResumeView';
 import { ContactView } from './views/ContactView';
 
 export default function App() {
@@ -19,15 +19,15 @@ export default function App() {
   const [selectedCaseStudy, setSelectedCaseStudy] = React.useState<CaseStudy | null>(null);
   const [selectedArticle, setSelectedArticle] = React.useState<Article | null>(null);
   const [isSearchOpen, setIsSearchOpen] = React.useState<boolean>(false);
-  const [darkMode, setDarkMode] = React.useState<boolean>(true);
+  const [darkMode, setDarkMode] = React.useState<boolean>(() => {
+    if (typeof window === 'undefined') return true;
+    return document.documentElement.classList.contains('dark');
+  });
 
   // Sync dark class on root document
   React.useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    document.documentElement.classList.toggle('dark', darkMode);
+    document.documentElement.style.colorScheme = darkMode ? 'dark' : 'light';
   }, [darkMode]);
 
   // Global Keyboard Shortcut (Cmd+K / Ctrl+K) for quick search
@@ -56,7 +56,7 @@ export default function App() {
         onNavigate={handleNavigate}
         onOpenSearch={() => setIsSearchOpen(true)}
         darkMode={darkMode}
-        onToggleDarkMode={() => setDarkMode(!darkMode)}
+        onToggleDarkMode={() => setDarkMode((prev) => !prev)}
       />
 
       {/* Main View Render */}
@@ -89,9 +89,9 @@ export default function App() {
           <AboutView />
         )}
 
-        {activeSection === 'resume' && (
+        {/* {activeSection === 'resume' && (
           <ResumeView />
-        )}
+        )} */}
 
         {activeSection === 'contact' && (
           <ContactView />

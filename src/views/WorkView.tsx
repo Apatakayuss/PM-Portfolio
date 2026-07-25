@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, type FC, type ChangeEvent } from 'react';
 import { CategoryFilter, CaseStudy } from '../types';
 import { caseStudies, selectedProjects } from '../data/caseStudies';
 import { Search, Filter, ArrowRight, ShieldCheck, Layers, Building, Calendar, Sparkles } from 'lucide-react';
@@ -7,9 +7,9 @@ interface WorkViewProps {
   onSelectCaseStudy: (cs: CaseStudy) => void;
 }
 
-export const WorkView: React.FC<WorkViewProps> = ({ onSelectCaseStudy }) => {
-  const [selectedFilter, setSelectedFilter] = React.useState<CategoryFilter>('All');
-  const [searchQuery, setSearchQuery] = React.useState('');
+export const WorkView: FC<WorkViewProps> = ({ onSelectCaseStudy }) => {
+  const [selectedFilter, setSelectedFilter] = useState('All' as CategoryFilter);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const filterOptions: CategoryFilter[] = [
     'All',
@@ -59,7 +59,7 @@ export const WorkView: React.FC<WorkViewProps> = ({ onSelectCaseStudy }) => {
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
               placeholder="Search case studies & tags..."
               className="w-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-sm pl-9 pr-4 py-2 text-xs text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-zinc-900"
             />

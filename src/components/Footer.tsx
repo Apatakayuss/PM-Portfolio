@@ -2,6 +2,7 @@ import * as React from 'react';
 import { NavSection } from '../types';
 import { personalInfo } from '../data/profile';
 import { Mail, Linkedin, Github, BookOpen, Twitter, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 interface FooterProps {
   onNavigate: (section: NavSection) => void;
@@ -17,9 +18,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Brand & Positioning */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-sm bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 flex items-center justify-center font-bold font-mono text-xs">
-                AA
-              </div>
+              <img
+                src={logo}
+                alt="Abdulazeez Apata logo"
+                className="w-8 h-8 object-contain rounded-sm"
+              />
               <span className="font-bold text-base text-zinc-900 dark:text-zinc-100 tracking-tight">
                 {personalInfo.name}
               </span>
@@ -44,7 +47,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li><button onClick={() => onNavigate('ai-automation')} className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">AI & Automation</button></li>
               <li><button onClick={() => onNavigate('writing')} className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Writing</button></li>
               <li><button onClick={() => onNavigate('about')} className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">About</button></li>
-              <li><button onClick={() => onNavigate('resume')} className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">CV / Resume</button></li>
               <li><button onClick={() => onNavigate('contact')} className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Contact</button></li>
             </ul>
           </div>

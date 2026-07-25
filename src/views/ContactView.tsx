@@ -4,16 +4,42 @@ import { Mail, Linkedin, Github, BookOpen, Twitter, Send, CheckCircle2, ArrowUpR
 
 export const ContactView: React.FC = () => {
   const [formData, setFormData] = React.useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = React.useState<'idle' | 'submitting' | 'submitted'>('idle');
+  const [status, setStatus] = React.useState<'idle' | 'submitting' | 'submitted' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = React.useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setStatus('submitting');
-    setTimeout(() => {
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/apatakayuss@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Portfolio inquiry from ${formData.name}`,
+          _captcha: 'false',
+          _template: 'table',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Unable to send message.');
+      }
+
       setStatus('submitted');
-    }, 1000);
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage('Your message could not be sent right now. Please email me directly at apatakayuss@gmail.com.');
+    }
   };
 
   return (
@@ -57,6 +83,21 @@ export const ContactView: React.FC = () => {
                 className="mt-2 text-xs font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 font-bold underline"
               >
                 Send Another Message
+              </button>
+            </div>
+          ) : status === 'error' ? (
+            <div className="p-6 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-sm space-y-3 text-center animate-in fade-in duration-200">
+              <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                Message could not be sent
+              </h3>
+              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                {errorMessage}
+              </p>
+              <button
+                onClick={() => { setStatus('idle'); setErrorMessage(''); }}
+                className="mt-2 text-xs font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 font-bold underline"
+              >
+                Try Again
               </button>
             </div>
           ) : (
