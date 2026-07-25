@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { CaseStudy } from '../types';
 import { X, ChevronDown, Check, Building, Calendar, UserCheck, ShieldCheck, Share2, Lightbulb, ArrowRight, Layers } from 'lucide-react';
 import { ProductDiagram } from './Diagrams';
@@ -9,9 +9,9 @@ interface CaseStudyModalProps {
 }
 
 export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ caseStudy, onClose }) => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'discovery' | 'decisions' | 'solution' | 'outcome'>('overview');
-  const [expandedTech, setExpandedTech] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [activeTab, setActiveTab] = React.useState<'overview' | 'discovery' | 'decisions' | 'solution' | 'outcome'>('overview');
+  const [expandedTech, setExpandedTech] = React.useState(false);
+  const [copied, setCopied] = React.useState(false);
 
   if (!caseStudy) return null;
 

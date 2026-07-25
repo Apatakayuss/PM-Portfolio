@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { personalInfo } from '../data/profile';
 import { Mail, Linkedin, Github, BookOpen, Twitter, Send, CheckCircle2, ArrowUpRight, MessageSquare } from 'lucide-react';
 
 export const ContactView: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'submitted'>('idle');
+  const [formData, setFormData] = React.useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = React.useState<'idle' | 'submitting' | 'submitted'>('idle');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

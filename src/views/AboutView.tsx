@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { personalInfo, careerExperiences, skillGroups } from '../data/profile';
 import { User, GraduationCap, Briefcase, Code2, Compass, Layers, ShieldCheck, CheckCircle2, ArrowUpRight } from 'lucide-react';
 

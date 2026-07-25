@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import * as React from 'react';
 import { Article } from '../types';
 import { X, Clock, Calendar, Share2, Check, ExternalLink, BookOpen } from 'lucide-react';
 
@@ -8,11 +8,11 @@ interface ArticleModalProps {
 }
 
 export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose }) => {
-  const [copied, setCopied] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const [copied, setCopied] = React.useState(false);
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+  const contentRef = React.useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       if (!contentRef.current) return;
       const { scrollTop, scrollHeight, clientHeight } = contentRef.current;

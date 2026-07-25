@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { automationProjects } from '../data/automations';
 import { Play, CheckCircle, RefreshCw, Cpu, Zap, ArrowRight, ShieldCheck, Terminal } from 'lucide-react';
 
 export const WorkflowSimulator: React.FC = () => {
-  const [selectedProject, setSelectedProject] = useState(automationProjects[0]);
-  const [isSimulating, setIsSimulating] = useState(false);
-  const [currentStepIndex, setCurrentStepIndex] = useState(-1);
-  const [logs, setLogs] = useState<string[]>([]);
+  const [selectedProject, setSelectedProject] = React.useState(automationProjects[0]);
+  const [isSimulating, setIsSimulating] = React.useState(false);
+  const [currentStepIndex, setCurrentStepIndex] = React.useState(-1);
+  const [logs, setLogs] = React.useState<string[]>([]);
 
   const runSimulation = () => {
     setIsSimulating(true);

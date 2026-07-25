@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import { NavSection } from '../types';
 import { Search, Moon, Sun, Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
 
@@ -17,7 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   darkMode,
   onToggleDarkMode
 }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   const navItems: { id: NavSection; label: string }[] = [
     { id: 'home', label: 'Home' },

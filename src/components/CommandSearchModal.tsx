@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { caseStudies } from '../data/caseStudies';
 import { articles } from '../data/articles';
 import { automationProjects } from '../data/automations';
@@ -20,7 +20,7 @@ export const CommandSearchModal: React.FC<CommandSearchModalProps> = ({
   onSelectArticle,
   onSelectAutomation
 }) => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = React.useState('');
 
   if (!isOpen) return null;
 

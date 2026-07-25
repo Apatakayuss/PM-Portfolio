@@ -5,9 +5,9 @@ export const caseStudies: CaseStudy[] = [
     id: "transfer-service-improvement",
     title: "Payments & Transfer Service Reliability Optimization",
     subtitle: "Improving transfer success rate from ~85% to 96% and reducing confirmation latency from ~50s to ~10s via Event-Driven Webhooks.",
-    company: "Fintech Platform",
-    period: "2023 – 2024",
-    role: "Technical Product Manager",
+    company: "Kongapay Technologies",
+    period: "2024 – 2026",
+    role: "Product Manager",
     tags: ["Fintech", "Payments", "Technical Product", "Product Strategy"],
     isFeatured: true,
     summary: "Transfers experienced high failure rates and frustrating delays due to rigid cron-based status polling. I led the technical product overhaul to transition to an event-driven webhook architecture with intelligent fallback routing.",
@@ -19,39 +19,39 @@ export const caseStudies: CaseStudy[] = [
     problem: "Customers experienced high transfer drop-offs, delayed receipt confirmations (taking up to 60 seconds), and frequent failed transactions when bank gateways experienced transient blips. Cron-based polling was overwhelming downstream endpoints.",
     context: "The platform processed thousands of daily inter-bank money transfers. Over 15% of transactions ended in timeout or pending states, causing support overhead and eroding user trust in time-sensitive transfers.",
     usersAndStakeholders: [
-      "Retail Banking Users needing instant transfer confirmation",
+      "Retail and Business Banking Users needing instant transfer confirmation",
       "Customer Support Engineers inundated with pending transfer tickets",
       "Finance & Reconciliation Teams matching settlement logs",
-      "Backend Payment Gateway Engineers"
+      "Backend Payment Engineers"
     ],
-    businessObjective: "Achieve sub-15 second transaction confirmation times and lift transfer success rate above 95% without increasing gateway processing costs.",
-    productChallenge: "Balancing strict bank partner API limits with real-time user expectations. Switch from passive scheduled polling to active webhook listeners while accommodating legacy partner banks that do not support webhooks natively.",
+    businessObjective: "Achieve sub-10 second transaction confirmation times and lift transfer success rate above 95% without increasing processing costs.",
+    productChallenge: "Balancing strict bank partner API limits with real-time user expectations. Switch from passive scheduled polling to event-driven architecture while accommodating legacy partner banks.",
     approach: [
       "Audited historical payment logs to classify failure causes (timeout vs insufficient funds vs gateway drop).",
-      "Designed an Event-Driven Webhook specification with HMAC signature validation for bank partners.",
-      "Engineered a dynamic smart fallback router that automatically re-routes failed transfers through secondary payment rails upon initial gateway timeout.",
+      "Designed an Event-Driven specification for transaction confirmation and processing.",
+      //"Engineered a dynamic smart fallback router that automatically re-routes failed transfers through secondary payment rails upon initial gateway timeout.",
       "Implemented exponential backoff polling strictly as a secondary fallback for non-webhook banks."
     ],
     keyDecisions: [
       {
         decision: "Adopt Event-Driven Architecture with Webhooks over aggressive polling.",
         rationale: "Webhooks notify our system within milliseconds of a bank status change, reducing network overhead and eliminating cron delay.",
-        tradeOff: "Requires strict signature verification and idempotent payload processing to prevent duplicate account credits."
+        tradeOff: "Requires strict signature verification and idempotent payload processing to prevent duplicate credits."
       },
       {
-        decision: "Implement multi-rail fallback routing within 5-second window.",
-        rationale: "If Primary Gateway A yields no acknowledgment in 5 seconds, route transaction through Gateway B.",
-        tradeOff: "Slightly higher transaction cost on secondary gateway, but significantly increases completion rate and customer retention."
+        decision: "Implement multi-rail fallback routing within 1 minute window.",
+        rationale: "If Primary service A yields no acknowledgment in 1 minute, route transaction through cronjob.",
+        tradeOff: "Slightly higher processing time on secondary cronjob, but significantly increases completion rate and customer retention."
       }
     ],
     diagramType: "event-driven",
-    solution: "A high-reliability transfer orchestration layer featuring event-driven webhook processing, automated idempotent retries, dynamic gateway failover, and a transparent user status progress indicator.",
-    outcome: "Successfully elevated transfer completion rates from 85% to 96%. Reduced average transaction confirmation duration from 40-60 seconds down to ~10 seconds, drastically minimizing customer anxiety and support volume.",
+    solution: "A high-reliability transfer orchestration layer featuring event-driven processing, automated idempotent retries, dynamic processor failover, and a transparent user status progress indicator.",
+    outcome: "Successfully elevated transfer completion rates from 85% to 96%. Reduced average transaction confirmation duration from 40-60 seconds down to ~10 seconds, drastically minimizing customer dissatisfaction and support volume.",
     metrics: [
       "Transfer Success Rate: 85% → 96%",
       "Average Latency: ~50s → ~10s",
       "Customer Support Disputes: Reduced by 42%",
-      "Gateway Throughput Capacity: Increased 3x without API throttling"
+     // "Gateway Throughput Capacity: Increased 3x without API throttling"
     ],
     lessonsLearned: [
       "In payments, velocity without idempotency is dangerous. Always design for idempotent callback handling.",
@@ -60,6 +60,59 @@ export const caseStudies: CaseStudy[] = [
     ]
   },
   {
+    id: "it-asset-management",
+    title: "Enterprise IT Asset Management System",
+    subtitle: "Structuring asset lifecycle tracking, automated inventory auditing, and ISO 20000-1 service management workflows.",
+    company: "Enterprise IT / TM30",
+    period: "Operations & Tech Initiative",
+    role: "Product Manager",
+    tags: ["Operations", "Product Strategy", "Technical Product"],
+    isFeatured: true,
+    summary: "Transformed fragmented hardware and software license tracking into a centralized, automated IT Asset Management system aligned with ISO 20000-1 service standards.",
+    impactMetrics: [
+      { label: "ISO Certification", value: "ISO 20000-1 Aligned" },
+      { label: "Unaccounted Assets", value: "18% → <1%" },
+      { label: "Audit Prep Time", value: "-75%" }
+    ],
+    problem: "Laptops, servers, cloud credentials, and software licenses were tracked in manual spreadsheets, creating security risks, ghost asset costs, and compliance audit failures.",
+    context: "As the company expanded across multiple locations, IT teams lacked clear visibility into asset ownership, maintenance schedules, depreciation, and decommission cycles.",
+    usersAndStakeholders: [
+      "IT Support Technicians and System Administrators",
+      "Finance Teams tracking asset depreciation and procurement",
+      "Security & Compliance Auditors",
+      "Employees onboarding and returning equipment"
+    ],
+    businessObjective: "Establish a single source of truth for all IT assets, reduce operational losses, and fulfill ISO 20000-1 IT Service Management System requirements.",
+    productChallenge: "Creating an asset lifecycle workflow that enforces accountability without burdening IT staff with excessive data entry.",
+    approach: [
+      "Mapped asset lifecycle states: Procurement → Tagged → Assigned → In-Repair → Retired.",
+      "Designed QR code scanning integration for rapid physical inventory audits via mobile camera.",
+      "Built automated check-in/check-out approvals linked to HR employee status changes (onboarding/offboarding).",
+      "Configured automated license expiration alerts and depreciation calculation engines."
+    ],
+    keyDecisions: [
+      {
+        decision: "Mandatory QR code physical scan verification during quarterly audits.",
+        rationale: "Eliminated 'ghost assets' where equipment was claimed to be present but actually lost or damaged.",
+        tradeOff: "Requires brief manual scanning effort per quarter, offset by complete audit confidence."
+      }
+    ],
+    diagramType: "asset-lifecycle",
+    solution: "A centralized IT Asset Management platform featuring barcode/QR tracking, automated HR sync, license compliance monitors, and ISO 20000-1 audit reporting.",
+    outcome: "Reduced unaccounted assets from 18% to under 1%, cut internal audit preparation time by 75%, and successfully supported ISO 20000-1 certification.",
+    metrics: [
+      "Unaccounted Assets: Reduced from 18% to <1%",
+      "Audit Readiness Time: Reduced from 2 weeks to 2 days",
+      "License Over-allocation Savings: Cut unused SaaS seat expenditure by 22%",
+      "Standardization: Achieved ISO 20000-1 audit compliance"
+    ],
+    lessonsLearned: [
+      "Process workflows fail if they don't integrate directly into daily habits (e.g. HR onboarding triggers).",
+      "Audit readiness should be a continuous background state, not a panic-driven quarterly scramble."
+    ]
+  },
+  
+  {
     id: "fraud-analyzer-aml",
     title: "API-First AML & Fraud Detection System",
     subtitle: "Building a compliant real-time transaction monitoring & risk scoring engine adhering to Central Bank (CBN) requirements.",
@@ -67,7 +120,7 @@ export const caseStudies: CaseStudy[] = [
     period: "2023 – Present",
     role: "Product Manager (Technical & Regulatory)",
     tags: ["Fintech", "Product Strategy", "Technical Product", "Operations"],
-    isFeatured: true,
+    isFeatured: false,
     summary: "To satisfy strict Central Bank regulatory standards and prevent illicit financial flows, I led the product strategy for an API-first Fraud Analyzer & AML risk engine with customizable rules and automated alert workflows.",
     impactMetrics: [
       { label: "Compliance Rate", value: "100% CBN Compliant" },
@@ -125,7 +178,7 @@ export const caseStudies: CaseStudy[] = [
     period: "Fintech Initiative",
     role: "Product Manager",
     tags: ["Fintech", "Product Strategy", "UX", "Payments"],
-    isFeatured: true,
+    isFeatured: false,
     summary: "Conceptualized and executed K-Save, a disciplined digital savings module integrated into the payment app, empowering users to set automated recurring savings plans with competitive yields.",
     impactMetrics: [
       { label: "1st Year Deposits", value: "₦2+ Billion" },
@@ -178,7 +231,7 @@ export const caseStudies: CaseStudy[] = [
     period: "Fintech Initiative",
     role: "Product Manager",
     tags: ["Fintech", "Payments", "Operations", "Technical Product"],
-    isFeatured: false,
+    isFeatured: true,
     summary: "Designed and launched merchant payment acceptance features and POS terminal synchronization for retail storefronts, removing onboarding bottlenecks and enabling instant settlement.",
     impactMetrics: [
       { label: "4-Month Volume", value: "₦100 Million" },
@@ -221,58 +274,7 @@ export const caseStudies: CaseStudy[] = [
       "Cashiers—not just business owners—are key product users; design UI specifically for high-stress cashier shifts."
     ]
   },
-  {
-    id: "it-asset-management",
-    title: "Enterprise IT Asset Management System",
-    subtitle: "Structuring asset lifecycle tracking, automated inventory auditing, and ISO 20000-1 service management workflows.",
-    company: "Enterprise IT / TM30",
-    period: "Operations & Tech Initiative",
-    role: "Product Manager",
-    tags: ["Operations", "Product Strategy", "Technical Product"],
-    isFeatured: false,
-    summary: "Transformed fragmented hardware and software license tracking into a centralized, automated IT Asset Management system aligned with ISO 20000-1 service standards.",
-    impactMetrics: [
-      { label: "ISO Certification", value: "ISO 20000-1 Aligned" },
-      { label: "Unaccounted Assets", value: "18% → <1%" },
-      { label: "Audit Prep Time", value: "-75%" }
-    ],
-    problem: "Laptops, servers, cloud credentials, and software licenses were tracked in manual spreadsheets, creating security risks, ghost asset costs, and compliance audit failures.",
-    context: "As the company expanded across multiple locations, IT teams lacked clear visibility into asset ownership, maintenance schedules, depreciation, and decommission cycles.",
-    usersAndStakeholders: [
-      "IT Support Technicians and System Administrators",
-      "Finance Teams tracking asset depreciation and procurement",
-      "Security & Compliance Auditors",
-      "Employees onboarding and returning equipment"
-    ],
-    businessObjective: "Establish a single source of truth for all IT assets, reduce operational losses, and fulfill ISO 20000-1 IT Service Management System requirements.",
-    productChallenge: "Creating an asset lifecycle workflow that enforces accountability without burdening IT staff with excessive data entry.",
-    approach: [
-      "Mapped asset lifecycle states: Procurement → Tagged → Assigned → In-Repair → Retired.",
-      "Designed QR code scanning integration for rapid physical inventory audits via mobile camera.",
-      "Built automated check-in/check-out approvals linked to HR employee status changes (onboarding/offboarding).",
-      "Configured automated license expiration alerts and depreciation calculation engines."
-    ],
-    keyDecisions: [
-      {
-        decision: "Mandatory QR code physical scan verification during quarterly audits.",
-        rationale: "Eliminated 'ghost assets' where equipment was claimed to be present but actually lost or damaged.",
-        tradeOff: "Requires brief manual scanning effort per quarter, offset by complete audit confidence."
-      }
-    ],
-    diagramType: "asset-lifecycle",
-    solution: "A centralized IT Asset Management platform featuring barcode/QR tracking, automated HR sync, license compliance monitors, and ISO 20000-1 audit reporting.",
-    outcome: "Reduced unaccounted assets from 18% to under 1%, cut internal audit preparation time by 75%, and successfully supported ISO 20000-1 certification.",
-    metrics: [
-      "Unaccounted Assets: Reduced from 18% to <1%",
-      "Audit Readiness Time: Reduced from 2 weeks to 2 days",
-      "License Over-allocation Savings: Cut unused SaaS seat expenditure by 22%",
-      "Standardization: Achieved ISO 20000-1 audit compliance"
-    ],
-    lessonsLearned: [
-      "Process workflows fail if they don't integrate directly into daily habits (e.g. HR onboarding triggers).",
-      "Audit readiness should be a continuous background state, not a panic-driven quarterly scramble."
-    ]
-  },
+  
   {
     id: "bill-payment-reconciliation",
     title: "Digital Banking Bill Payment & Automated Reconciliation",
@@ -327,6 +329,7 @@ export const caseStudies: CaseStudy[] = [
 ];
 
 export const selectedProjects: SelectedProject[] = [
+  /*
   {
     id: "paytent",
     title: "Paytent",
@@ -335,6 +338,7 @@ export const selectedProjects: SelectedProject[] = [
     description: "Digital payment solution focused on flexible payout schedules and API integration for creators and small business vendors.",
     highlights: ["API payload specification", "Payout rule engine", "Vendor portal UX"]
   },
+  */
   {
     id: "easy-bill",
     title: "Easy Bill Platform",
@@ -359,6 +363,7 @@ export const selectedProjects: SelectedProject[] = [
     description: "Service marketplace connecting automotive technicians with car owners requiring verified maintenance.",
     highlights: ["Service booking workflow", "Rating & review system", "Job status tracker"]
   },
+  /*
   {
     id: "savora",
     title: "Savora",
@@ -367,6 +372,7 @@ export const selectedProjects: SelectedProject[] = [
     description: "Digital menu and contactless table ordering application designed for hospitality businesses.",
     highlights: ["QR code table mapping", "Kitchen ticket display", "Contactless bill pay"]
   },
+  */
   {
     id: "alluring",
     title: "Alluring",

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { aiFrameworkCategories, automationProjects } from '../data/automations';
 import { WorkflowSimulator } from '../components/WorkflowSimulator';
 import { Cpu, Zap, ShieldCheck, CheckCircle2, Clock, Terminal, ArrowRight, Layers } from 'lucide-react';

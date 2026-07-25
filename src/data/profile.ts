@@ -5,28 +5,28 @@ export const personalInfo = {
   title: "Product Manager | Fintech & Payments | AI & Automation | Product Strategy",
   email: "Apatakayuss@gmail.com",
   location: "Lagos, Nigeria",
-  linkedin: "https://linkedin.com/in/abdulazeezapata",
-  github: "https://github.com/abdulazeezapata",
-  medium: "https://medium.com/@abdulazeezapata",
-  twitter: "https://x.com/abdulazeezapata",
+  linkedin: "https://www.linkedin.com/in/abdulazeez-apata-5481a5118/",
+  github: "https://github.com/Apatakayuss",
+  medium: "https://medium.com/@Officialapata",
+  twitter: "https://x.com/OfficialApata",
   headline: "Product Manager building better products at the intersection of fintech, payments, AI, and automation.",
   heroBio: "I work on complex products and systems, turning ambiguous problems into clear product strategies, structured requirements, and scalable solutions. My work spans fintech, payments, financial infrastructure, AI-enabled workflows, automation, and digital products.",
   aboutStory: {
-    whoIAm: "I am a Product Manager driven by systems thinking, clear problem framing, and building functional software that operates reliably at scale.",
+    whoIAm: "I am a Product Manager who thinks in systems. ",
     howIBecamePM: "My journey started with a background in Biochemistry and a Master of Public Health, which trained me in rigorous analytical methodologies, scientific observation, and population-level system dynamics. Transitioning into software engineering as a Frontend Web Developer at Adanian Labs, I discovered my deep passion for product strategy, system architecture, and customer problem-solving, leading me directly into Technical Product Management.",
-    howIThink: "I view products as interconnected systems where tech decisions impact user trust and business metrics. I focus on reducing system friction, eliminating manual operational bottlenecks, and structuring clear requirements before writing code.",
+    howIThink: "I look beyond the feature or interface in front of the user to understand the processes, dependencies, technology, and operational realities underneath it. I believe a product can only be truly successful when the experience works for the user, the system works reliably, and the business can sustain it.\n\nMy approach starts with clear problem framing. I focus on understanding what is actually broken, identifying where friction and manual bottlenecks exist, and creating clarity before moving into execution. I care about the details of how systems behave—not just when everything goes right, but also when transactions fail, dependencies go down, processes break, or users take unexpected paths.\n\nUltimately, I try to build products that are useful to users, reliable in operation, and valuable to the business.",
     whyFintech: "Financial infrastructure and payment routing present fascinating engineering and regulatory challenges. Ensuring a transaction succeeds in seconds requires alignment across APIs, banks, compliance engines, and user psychology.",
     howAIChangesWork: "I don't treat AI as a content generator; I treat it as a cognitive lever. From synthesizing raw feedback data to automating PRD drafts, evaluating LLM accuracy, and crafting automated workflow pipelines, AI enables me to operate with high velocity and strategic clarity."
   },
   education: [
     {
       degree: "Master of Public Health (MPH)",
-      institution: "Higher Institution",
+      institution: "Ahmadu Bello University",
       focus: "Analytical Methods & Health Systems"
     },
     {
       degree: "Bachelor of Science (B.Sc.) in Biochemistry",
-      institution: "Higher Institution",
+      institution: "University of Ilorin",
       focus: "Biochemical Systems & Analytical Research"
     }
   ]
@@ -111,6 +111,24 @@ export const careerExperiences: CareerExperience[] = [
     ],
     skillsUsed: ["Product Strategy", "API Design", "Fintech Infrastructure", "AI Workflows", "System Requirements"]
   },
+
+   {
+    id: "kongapay",
+    title: "Product Manager",
+    company: "KongaPay",
+    period: "August 2024 – January 2026",
+    location: "Lagos, Nigeria",
+    description: "Worked on merchant payment acceptance, POS integration, and consumer digital wallet features.",
+    achievements: [
+      "Own product strategy and delivery for payment, transfer, and financial services products, collaborating with Engineering, Operations, Compliance, and Commercial teams to improve customer and merchant experiences.",
+      "Led enhancements to payment and transfer infrastructure by monitoring transaction success rates, identifying integration failures, investigating production issues, and prioritizing reliability improvements, resulting in an 11% increase in service efficiency",
+      "Partnered closely with backend and platform engineering teams to define API requirements, improve service integrations, optimize transaction processing workflows, and reduce system bottlenecks affecting transaction performance.",
+      "Drove the end-to-end development and launch of K-Save from concept to market, defining product requirements, customer journeys, operational processes, and go-to-market strategy, contributing to over two billion in transaction volume within its first year.",
+      "Collaborated with internal stakeholders to streamline operational workflows, improve issue resolution processes, and support scalable service delivery across payment and banking products.",
+      "Worked with engineering teams on platform scalability, service resilience, and architecture decisions supporting growth, regulatory compliance, and operational reliability"
+    ],
+    skillsUsed: ["Savings Products", "Merchant Payments", "POS Flows", "KYC & Compliance", "User Journeys"]
+  },
   {
     id: "easybill",
     title: "Product Manager",
@@ -125,20 +143,7 @@ export const careerExperiences: CareerExperience[] = [
     ],
     skillsUsed: ["Bill Payments", "Transaction Lifecycle", "Reconciliation", "User Story Mapping", "Postman"]
   },
-  {
-    id: "kongapay",
-    title: "Product Management Role",
-    company: "KongaPay",
-    period: "Previous Role",
-    location: "Lagos, Nigeria",
-    description: "Worked on merchant payment acceptance, POS integration, and consumer digital wallet features.",
-    achievements: [
-      "Contributed to K-Save savings feature which scaled to ~₦2B in deposits within its first year.",
-      "Delivered merchant payment features enabling over ₦100M transaction volume within 4 months of release.",
-      "Mapped user journeys and backend payment flows for agency banking and web checkout integration."
-    ],
-    skillsUsed: ["Savings Products", "Merchant Payments", "POS Flows", "KYC & Compliance", "User Journeys"]
-  },
+ 
   {
     id: "adanian",
     title: "Frontend Web Developer",

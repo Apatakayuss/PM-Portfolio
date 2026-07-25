@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { NavSection } from '../types';
 import { personalInfo } from '../data/profile';
 import { Mail, Linkedin, Github, BookOpen, Twitter, ArrowUpRight, ShieldCheck } from 'lucide-react';

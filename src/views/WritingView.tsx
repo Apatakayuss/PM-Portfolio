@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { Article } from '../types';
 import { articles } from '../data/articles';
 import { Search, BookOpen, Clock, Calendar, ArrowRight, Sparkles, ExternalLink } from 'lucide-react';
@@ -8,8 +8,8 @@ interface WritingViewProps {
 }
 
 export const WritingView: React.FC<WritingViewProps> = ({ onSelectArticle }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = React.useState<string>('All');
+  const [searchQuery, setSearchQuery] = React.useState<string>('');
 
   const categories = [
     'All',

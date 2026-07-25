@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import { NavSection, CaseStudy, Article, AutomationProject } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -15,14 +15,14 @@ import { ResumeView } from './views/ResumeView';
 import { ContactView } from './views/ContactView';
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState<NavSection>('home');
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
-  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
-  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
-  const [darkMode, setDarkMode] = useState<boolean>(true);
+  const [activeSection, setActiveSection] = React.useState<NavSection>('home');
+  const [selectedCaseStudy, setSelectedCaseStudy] = React.useState<CaseStudy | null>(null);
+  const [selectedArticle, setSelectedArticle] = React.useState<Article | null>(null);
+  const [isSearchOpen, setIsSearchOpen] = React.useState<boolean>(false);
+  const [darkMode, setDarkMode] = React.useState<boolean>(true);
 
   // Sync dark class on root document
-  useEffect(() => {
+  React.useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
     } else {
@@ -31,7 +31,7 @@ export default function App() {
   }, [darkMode]);
 
   // Global Keyboard Shortcut (Cmd+K / Ctrl+K) for quick search
-  useEffect(() => {
+  React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();

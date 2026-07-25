@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { MetricItem } from '../types';
 import { CheckCircle2, Info, ArrowUpRight, ShieldCheck } from 'lucide-react';
 
 interface MetricCardProps {
   metric: MetricItem;
   onExplore?: (category: string) => void;
+  children?: React.ReactNode;
 }
 
 export const MetricCard: React.FC<MetricCardProps> = ({ metric }) => {
-  const [showDetail, setShowDetail] = useState(false);
+  const [showDetail, setShowDetail] = React.useState(false);
 
   return (
     <div className="relative group bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-sm p-6 transition-all duration-200 hover:border-zinc-400 dark:hover:border-zinc-700 shadow-sm flex flex-col justify-between">

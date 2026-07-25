@@ -1,10 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import { NavSection, CaseStudy, Article } from '../types';
-import { personalInfo, verifiedMetrics, careerExperiences } from '../data/profile';
+import { personalInfo, verifiedMetrics } from '../data/profile';
 import { caseStudies } from '../data/caseStudies';
 import { articles } from '../data/articles';
 import { MetricCard } from '../components/MetricCard';
 import { ProductDiagram } from '../components/Diagrams';
+import heroPortrait from '../assets/Abdulazee.png';
 import { ArrowRight, ChevronRight, Layers, Cpu, BookOpen, ShieldCheck, Zap, LineChart, Code2, Sparkles, Building, CheckCircle2 } from 'lucide-react';
 
 interface HomeViewProps {
@@ -59,51 +60,61 @@ export const HomeView: React.FC<HomeViewProps> = ({
       
       {/* 1. HERO SECTION */}
       <section className="pt-8 sm:pt-14">
-        <div className="max-w-4xl space-y-6">
-          
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-zinc-100 dark:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 text-xs font-mono border border-zinc-200 dark:border-zinc-700/80">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            Lagos, Nigeria • Open to Product Leadership Opportunities
-          </div>
+        <div className="max-w-6xl grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-center">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-zinc-100 dark:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 text-xs font-mono border border-zinc-200 dark:border-zinc-700/80">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              Lagos, Nigeria • Open to Product Leadership Opportunities
+            </div>
 
-          <div className="space-y-3">
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.05]">
-              {personalInfo.name}
-            </h1>
-            <p className="text-xl sm:text-2xl font-semibold text-zinc-700 dark:text-zinc-300 leading-snug">
-              {personalInfo.headline}
+            <div className="space-y-3">
+              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.05]">
+                {personalInfo.name}
+              </h1>
+              <p className="text-xl sm:text-2xl font-semibold text-zinc-700 dark:text-zinc-300 leading-snug">
+                {personalInfo.headline}
+              </p>
+            </div>
+
+            <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
+              {personalInfo.heroBio}
             </p>
+
+            {/* Action CTAs */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <button
+                onClick={() => onNavigate('work')}
+                className="px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 text-sm font-medium rounded-sm hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors shadow-sm flex items-center gap-2 group"
+              >
+                View My Work
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+
+              <button
+                onClick={() => onNavigate('writing')}
+                className="px-6 py-3 border border-zinc-200 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200 text-sm font-medium rounded-sm hover:border-zinc-900 dark:hover:border-zinc-300 transition-colors flex items-center gap-2"
+              >
+                Read Writing
+              </button>
+
+              <button
+                onClick={() => onNavigate('contact')}
+                className="text-xs font-medium text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors uppercase tracking-wider px-2"
+              >
+                Contact
+              </button>
+            </div>
           </div>
 
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
-            {personalInfo.heroBio}
-          </p>
-
-          {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <button
-              onClick={() => onNavigate('work')}
-              className="px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 text-sm font-medium rounded-sm hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors shadow-sm flex items-center gap-2 group"
-            >
-              View My Work
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-
-            <button
-              onClick={() => onNavigate('writing')}
-              className="px-6 py-3 border border-zinc-200 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200 text-sm font-medium rounded-sm hover:border-zinc-900 dark:hover:border-zinc-300 transition-colors flex items-center gap-2"
-            >
-              Read Writing
-            </button>
-
-            <button
-              onClick={() => onNavigate('contact')}
-              className="text-xs font-medium text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors uppercase tracking-wider px-2"
-            >
-              Contact
-            </button>
+          <div className="relative">
+            <div className="rounded-2xl border border-zinc-200/80 bg-white/70 p-3 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/60">
+              <img
+                src={heroPortrait}
+                alt="Portrait of Abdulazeez Apata"
+                className="h-full w-full rounded-xl object-cover"
+              />
+            </div>
           </div>
-
         </div>
       </section>
 
@@ -161,7 +172,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {verifiedMetrics.map((metric) => (
-            <MetricCard key={metric.id} metric={metric} />
+            <div key={metric.id}>
+              <MetricCard metric={metric} />
+            </div>
           ))}
         </div>
       </section>
@@ -307,7 +320,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       </section>
 
       {/* 7. CAREER TIMELINE PREVIEW */}
-      <section className="space-y-6">
+      {/* <section className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-xs uppercase tracking-[0.2em] text-zinc-400 font-bold mb-2">
@@ -352,7 +365,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* 8. CONTACT CTA */}
       <section className="bg-zinc-50 dark:bg-zinc-900/60 rounded-sm p-8 sm:p-12 border border-zinc-200 dark:border-zinc-800 text-center space-y-6">

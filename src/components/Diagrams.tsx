@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 interface DiagramProps {
   type: 'event-driven' | 'fraud-api' | 'asset-lifecycle' | 'merchant-pos' | 'savings-growth' | 'bill-reconciliation' | 'automation-pipeline';

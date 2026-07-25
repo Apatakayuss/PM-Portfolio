@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { CategoryFilter, CaseStudy } from '../types';
 import { caseStudies, selectedProjects } from '../data/caseStudies';
 import { Search, Filter, ArrowRight, ShieldCheck, Layers, Building, Calendar, Sparkles } from 'lucide-react';
@@ -8,8 +8,8 @@ interface WorkViewProps {
 }
 
 export const WorkView: React.FC<WorkViewProps> = ({ onSelectCaseStudy }) => {
-  const [selectedFilter, setSelectedFilter] = useState<CategoryFilter>('All');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedFilter, setSelectedFilter] = React.useState<CategoryFilter>('All');
+  const [searchQuery, setSearchQuery] = React.useState('');
 
   const filterOptions: CategoryFilter[] = [
     'All',

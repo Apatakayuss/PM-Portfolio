@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { personalInfo, careerExperiences, verifiedMetrics, skillGroups } from '../data/profile';
 import { Download, Printer, Mail, Linkedin, Github, FileText, CheckCircle2, ShieldCheck, MapPin } from 'lucide-react';
 
