@@ -31,8 +31,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Product Manager operating at the intersection of fintech, payments, AI, and automation. Focused on evidence-driven impact, system workflows, and clear communication.
             </p>
             <div className="flex items-center gap-2 text-xs text-zinc-400 font-mono">
-              <ShieldCheck className="w-4 h-4 text-zinc-900 dark:text-zinc-100" />
-             {/* <span>Evidence-Based Portfolio • Verified Metrics & Artifacts</span> */}
+          {/*   <ShieldCheck className="w-4 h-4 text-zinc-900 dark:text-zinc-100" />
+             <span>Evidence-Based Portfolio • Verified Metrics & Artifacts</span> */}
             </div>
           </div>
 

@@ -64,7 +64,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-zinc-100 dark:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 text-xs font-mono border border-zinc-200 dark:border-zinc-700/80">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              Lagos, Nigeria • Open to Product Leadership Opportunities
+              Lagos, Nigeria{/* • Open to Product Leadership Opportunities */}
             </div>
 
             <div className="space-y-3">
