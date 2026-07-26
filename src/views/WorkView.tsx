@@ -1,36 +1,14 @@
-import { useState, type FC, type ChangeEvent } from 'react';
-import { CategoryFilter, CaseStudy } from '../types';
+import type { FC } from 'react';
+import type { CaseStudy } from '../types';
 import { caseStudies, selectedProjects } from '../data/caseStudies';
-import { Search, Filter, ArrowRight, ShieldCheck, Layers, Building, Calendar, Sparkles } from 'lucide-react';
+import { Layers, Building } from 'lucide-react';
 
 interface WorkViewProps {
   onSelectCaseStudy: (cs: CaseStudy) => void;
 }
 
 export const WorkView: FC<WorkViewProps> = ({ onSelectCaseStudy }) => {
-  const [selectedFilter, setSelectedFilter] = useState('All' as CategoryFilter);
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const filterOptions: CategoryFilter[] = [
-    'All',
-    'Fintech',
-    'Payments',
-    'AI',
-    'Automation',
-    'Product Strategy',
-    'Technical Product',
-    'UX',
-    'Operations'
-  ];
-
-  const filteredCaseStudies = caseStudies.filter((cs) => {
-    const matchesFilter = selectedFilter === 'All' || cs.tags.includes(selectedFilter);
-    const matchesQuery = 
-      cs.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      cs.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      cs.company.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesFilter && matchesQuery;
-  });
+  const filteredCaseStudies = caseStudies;
 
   return (
     <div className="space-y-16 pb-20">
@@ -49,17 +27,14 @@ export const WorkView: FC<WorkViewProps> = ({ onSelectCaseStudy }) => {
         </p>
       </div>
 
-      {/* Filter & Search Bar */}
+      {/* Search & Filter Bar (temporarily hidden) */}
+      {/*
       <div className="space-y-4 bg-zinc-50 dark:bg-zinc-900/60 p-4 sm:p-6 rounded-sm border border-zinc-100 dark:border-zinc-800 shadow-sm">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          
-          {/* Search Input */}
           <div className="relative w-full sm:w-72">
             <Search className="w-4 h-4 text-zinc-400 absolute left-3 top-2.5" />
             <input
               type="text"
-              value={searchQuery}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
               placeholder="Search case studies & tags..."
               className="w-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-sm pl-9 pr-4 py-2 text-xs text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-zinc-900"
             />
@@ -70,23 +45,13 @@ export const WorkView: FC<WorkViewProps> = ({ onSelectCaseStudy }) => {
           </div>
         </div>
 
-        {/* Category Filter Chips */}
         <div className="flex flex-wrap items-center gap-2 pt-2">
-          {filterOptions.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setSelectedFilter(filter)}
-              className={`px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-wider transition-all ${
-                selectedFilter === filter
-                  ? 'bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 font-bold shadow-sm'
-                  : 'bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-700 border border-zinc-200/80 dark:border-zinc-700'
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
+          <button className="px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-wider transition-all bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 font-bold shadow-sm">
+            All
+          </button>
         </div>
       </div>
+      */}
 
       {/* Case Studies Grid */}
       <div className="space-y-6">
@@ -96,7 +61,7 @@ export const WorkView: FC<WorkViewProps> = ({ onSelectCaseStudy }) => {
 
         {filteredCaseStudies.length === 0 ? (
           <div className="text-center py-16 bg-white dark:bg-zinc-900 rounded-sm border border-zinc-100 dark:border-zinc-800 text-xs text-zinc-500">
-            No case studies found matching "{searchQuery}" with filter "{selectedFilter}".
+            No case studies are available right now.
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

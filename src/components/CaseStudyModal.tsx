@@ -206,7 +206,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ caseStudy, onClo
           )}
 
           {/* TAB 4: SOLUTION & DIAGRAM */}
-          {activeTab === 'solution' && (
+         {/* {activeTab === 'solution' && (
             <div className="space-y-6 animate-in fade-in duration-200">
               <div>
                 <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-zinc-400 mb-2">The Solution Overview</h3>
@@ -220,10 +220,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ caseStudy, onClo
                   <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-zinc-400 mb-2">System & Process Architecture Flow</h3>
                   <ProductDiagram type={caseStudy.diagramType} />
                 </div>
-              )}
+              )} */}
 
               {/* Expandable Technical Specification Details */}
-              <div className="border border-zinc-200 dark:border-zinc-800 rounded-sm overflow-hidden">
+             {/*} <div className="border border-zinc-200 dark:border-zinc-800 rounded-sm overflow-hidden">
                 <button
                   onClick={() => setExpandedTech(!expandedTech)}
                   className="w-full flex items-center justify-between p-4 bg-zinc-50 dark:bg-zinc-800/60 text-xs font-bold text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
@@ -252,7 +252,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ caseStudy, onClo
                 )}
               </div>
             </div>
-          )}
+          )} */}
 
           {/* TAB 5: OUTCOME & LESSONS */}
           {activeTab === 'outcome' && (

@@ -52,7 +52,7 @@ export const CommandSearchModal: React.FC<CommandSearchModalProps> = ({
           <input
             type="text"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
             placeholder="Search case studies, writing, automation labs, or skills..."
             className="w-full bg-transparent text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none font-sans"
             autoFocus

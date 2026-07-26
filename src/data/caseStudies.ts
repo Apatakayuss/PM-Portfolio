@@ -5,7 +5,7 @@ export const caseStudies: CaseStudy[] = [
     id: "transfer-service-improvement",
     title: "Payments & Transfer Service Reliability Optimization",
     subtitle: "Improving transfer success rate from ~85% to 96% and reducing confirmation latency from ~50s to ~10s via Event-Driven Webhooks.",
-    company: "Kongapay Technologies",
+    company: "Kongapay",
     period: "2024 – 2026",
     role: "Product Manager",
     tags: ["Fintech", "Payments", "Technical Product", "Product Strategy"],
@@ -355,14 +355,14 @@ export const selectedProjects: SelectedProject[] = [
     description: "Simplified digital voucher and inventory fulfillment system for retail consumers.",
     highlights: ["Instant code generation", "Inventory lock mechanisms", "Mobile checkout"]
   },
-  {
+ /* {
     id: "autogig",
     title: "Autogig",
     category: "Product & Operations",
     role: "Product Manager",
     description: "Service marketplace connecting automotive technicians with car owners requiring verified maintenance.",
     highlights: ["Service booking workflow", "Rating & review system", "Job status tracker"]
-  },
+  }, */
   /*
   {
     id: "savora",

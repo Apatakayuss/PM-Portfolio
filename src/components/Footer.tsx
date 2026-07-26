@@ -32,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </p>
             <div className="flex items-center gap-2 text-xs text-zinc-400 font-mono">
               <ShieldCheck className="w-4 h-4 text-zinc-900 dark:text-zinc-100" />
-              <span>Evidence-Based Portfolio • Verified Metrics & Artifacts</span>
+             {/* <span>Evidence-Based Portfolio • Verified Metrics & Artifacts</span> */}
             </div>
           </div>
 
@@ -99,7 +99,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 font-mono gap-4">
           <div>
-            © {new Date().getFullYear()} {personalInfo.name}. Clean Minimalism Design.
+            © {new Date().getFullYear()} {personalInfo.name}. 
           </div>
           <div className="flex items-center gap-4">
             <span>Lagos, Nigeria</span>
